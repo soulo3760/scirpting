@@ -1,8 +1,9 @@
 #!/bin/bash
 SED -i s/good/bad/g
 sed -i "70000d" example.txt # removes the line 7000
-filename = makefile tempfile
+tempfile = (mktemp)
+sed -n '$7000p' 'text.txt' > '$tempfile' # creates a temporary file and store its path in tempfile variable
+sed -i "1e cat $tempfile" "$filename" # inserts content of the temporary file to this filename file
 sed -i '$a auctores varii' filename - adds content to the last line of the filne
 sed -i '2i auctores varii' document.txt -  adds content to the second line
 sed -i.bak '2i auctores varii' document.txt
-
