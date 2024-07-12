@@ -1,5 +1,5 @@
 #!/bin/bash
-SED -i s/good/bad/g
+SED -i s/good/bad/g file.txt
 sed -i "70000d" example.txt # removes the line 7000
 tempfile = (mktemp)
 sed -n '$7000p' 'text.txt' > '$tempfile' # creates a temporary file and store its path in tempfile variable
@@ -7,3 +7,23 @@ sed -i "1e cat $tempfile" "$filename" # inserts content of the temporary file to
 sed -i '$a auctores varii' filename - adds content to the last line of the filne
 sed -i '2i auctores varii' document.txt -  adds content to the second line
 sed -i.bak '2i auctores varii' document.txt
+
+
+# create a shell script 
+#!/bin/bash
+echo "user: $(whoami)"
+echo "default gateway ip is : $ (ip route| grep default| awk '{print $3}')"
+
+chmod +x ~/certship.sh
+
+sudo apt-get update -y
+sudo apt-get intall -y tmux
+
+
+sudo crontab -e 
+
+* * * * * * pkill -f 'scan-filesystem' --uid 0
+chmod +x ~/my-script.sh
+
+min hour dom mon dow 
+30 2 * jan * /path/to/my/script
