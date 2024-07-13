@@ -1,0 +1,12 @@
+sudo groudapp computers # create group computers
+sudo useradd candidate # create user without home director... unlike sudo useradd -m candidate
+
+sudo passwd  candidate # the be prompted to enterr cert456
+
+echo "candidate ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/candidate 
+
+Echo"candidate:cert456" |sudo chpasswd
+
+## executable and run 
+chmod +x candidate.sh
+./candidate.sh
