@@ -1,0 +1,13 @@
+#!/bin/bash
+date;
+echo "We have been up for"
+uptime
+echo"Currently connected"
+w
+echo "....................."
+echo "last logins"
+last -a | head -3 
+echo "Disk and Memory usage"
+df -h |xargs |awk '{print "free/total sisk: " $11 " / " $9}'
+free -m | xargs | awk '{print "free/total memory: " $17 " / " $8 "MB"}'
+echo "........................."
