@@ -11,3 +11,23 @@ echo "Disk and Memory usage"
 df -h |xargs |awk '{print "free/total sisk: " $11 " / " $9}'
 free -m | xargs | awk '{print "free/total memory: " $17 " / " $8 "MB"}'
 echo "........................."
+start_log=`head -1 /var/log/messages |cut -c 1-12`
+oom=`grep -ci kill /var/log/message'
+echo -n "OOM errors since $start_log:" $oom
+echo ""
+echo "..................."
+echo "Utilization and most expensive processess:"
+top -b | head -3 
+echo 
+    top -b | head -10 | tail -4
+echo "..................."
+echo "Open TCP ports"
+nmap -p- -T4 127.0.0.1
+echo "current connections:"
+ss -s
+echo ".................."
+echo "processes:"
+ps auxf --width=200
+echo ".................."
+echo "Vmstat:"
+vmstat 1 5
