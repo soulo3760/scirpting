@@ -31,3 +31,7 @@ ps auxf --width=200
 echo ".................."
 echo "Vmstat:"
 vmstat 1 5
+
+
+
+#### ./server_health.sh > server_health.txt
